@@ -1,72 +1,101 @@
-# Clasly - Student Portal Dashboard 🎓
+# 🎓 Clasly - Dashboard Estudiantil
 
-**Clasly** is a modern, high-performance student dashboard application built to manage academic schedules, track real-time class status, and organize notes and tasks efficiently.
+<div align="center">
 
-![Clasly Dashboard](https://github.com/christianestrada1102/Clasly/assets/placeholder-image-url) 
-*(Note: You can add a screenshot here later)*
+![Clasly](https://img.shields.io/badge/Clasly-Student_Dashboard-2563EB?style=for-the-badge)
+![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-0055FF?style=for-the-badge&logo=framer)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)
 
-## ✨ Features
+Dashboard moderno para gestión académica con enfoque en UI/UX, estado en tiempo real y productividad.
 
--   **🎨 Portal Dashboard Aesthetic**: beautifully designed with glassmorphism, clean typography (Lexend, Noto Sans), and a premium feel.
--   **⏱️ Real-Time Status**: The `CurrentClassCard` dynamically updates to show if you are in a class, on a break, or when your next class begins.
--   **📅 Responsive Schedule**:
-    -   **Desktop**: Full weekly grid view with current day highlighting.
-    -   **Mobile**: Optimized Day View with easy tab navigation for each day of the week.
--   **📝 Notes & Tasks**:
-    -   Integrated manager for class notes and to-do lists.
-    -   **Auto-Cleanup**: Notes and tasks older than **7 days** are automatically deleted to keep your workspace clutter-free.
-    -   **Persistence**: Data is saved locally in your browser.
--   **🚀 Fast & Lightweight**: Built with Vite and React for instant load times.
+[Ver Demo](#) · [Reportar Bug](https://github.com/christianestrada1102/Clasly/issues)
 
-## 🛠️ Tech Stack
-
--   **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
--   **Language**: [TypeScript](https://www.typescriptlang.org/)
--   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
--   **Animations**: [Framer Motion](https://www.framer.com/motion/)
--   **Icons**: [Lucide React](https://lucide.dev/)
-
-## 🚀 Getting Started
-
-### Prerequisites
-
--   Node.js (v18 or higher)
--   npm (or yarn/pnpm)
-
-### Installation
-
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/christianestrada1102/Clasly.git
-    cd Clasly
-    ```
-
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-
-3.  Run the development server:
-    ```bash
-    npm run dev
-    ```
-
-4.  Open `http://localhost:5173` (or the port shown in your terminal) to view the app.
-
-## 📦 Build for Production
-
-To build the app for deployment (e.g., Vercel):
-
-```bash
-npm run build
-```
-
-The output will be in the `dist/` directory.
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to open issues or submit pull requests.
+</div>
 
 ---
 
-Built with ❤️ by [Christian Estrada](https://github.com/christianestrada1102) & **Gravity Agent**
+## 💡 Sobre el Proyecto
+
+**Clasly** es una aplicación diseñada para transformar la experiencia de organización estudiantil. A diferencia de los horarios tradicionales estáticos, este dashboard ofrece una interfaz viva que **entiende el contexto temporal del estudiante**.
+
+El objetivo principal fue crear una herramienta que no solo muestre información, sino que se adapte al momento del día, indicando claramente qué clase está cursando, cuánto tiempo falta para la siguiente y permitiendo gestionar tareas académicas en un solo lugar.
+
+---
+
+## ✨ Características destacadas
+
+- 🎨 **Diseño Portal UI**: Interfaz glassmorphism premium con tipografía cuidada (Lexend + Noto Sans).
+- ⏱️ **Estado en Tiempo Real**: Tarjetas inteligentes que indican si estás en clase, receso o tiempo libre.
+- 📱 **Responsive Total**: 
+  - **Desktop**: Grid semanal completo con resaltado del día actual.
+  - **Móvil**: Vista diaria optimizada con navegación por pestañas.
+- 🧹 **Auto-Cleanup**: Sistema inteligente que elimina notas y tareas antiguas (>7 días) automáticamente.
+- ⚡ **Alto Rendimiento**: Construido con Vite para carga instantánea y persistencia local (LocalStorage).
+- 📝 **Gestor de Tareas**: Bloc de notas y lista de pendientes integrados en la misma interfaz.
+
+## 🎥 Preview
+
+![Dashboard Preview](https://github.com/christianestrada1102/Clasly/assets/placeholder-preview.png)
+*(Asegúrate de subir una captura real a tu repo y actualizar este link)*
+
+---
+
+## 🚀 Tecnologías Utilizadas
+
+Este proyecto fue construido utilizando un stack moderno enfocado en **rendimiento** y **escalabilidad**:
+
+### Frontend
+- **React 18**: Librería principal para la construcción de interfaces reactivas.
+- **TypeScript**: Garantiza la seguridad de tipos y facilita el mantenimiento del código.
+- **Vite**: Entorno de desarrollo de última generación para tiempos de carga ultrarrápidos.
+- **TailwindCSS**: Sistema de utilidades para un diseño rápido y consistente.
+- **Framer Motion**: Motor de animaciones para transiciones fluidas y micro-interacciones.
+- **Lucide React**: Biblioteca de iconos SVG optimizados.
+- **LocalStorage**: Implementación de persistencia de datos del lado del cliente sin necesidad de base de datos.
+
+---
+
+## 🧱 Arquitectura del Proyecto
+
+El código está estructurado para ser modular y mantenible:
+
+```
+Clasly/
+├── src/
+│   ├── components/         # Componentes UI (Header, ClassCard, NotesView...)
+│   ├── hooks/              # Lógica reutilizable (useCurrentClass, hooks de tiempo...)
+│   ├── types/              # Definiciones TypeScript para datos académicos
+│   ├── utils/              # Funciones auxiliares y datos estáticos del horario
+│   ├── App.tsx             # Layout principal y enrutamiento visual
+│   └── index.css           # Estilos globales y configuración de variables
+├── public/                 # Assets estáticos
+└── README.md               # Documentación
+```
+
+---
+
+## 🎨 Paleta de Diseño
+
+Se utilizó una paleta de colores moderna y oscura para reducir la fatiga visual:
+
+```css
+--primary: #2563EB;      /* Azul vibrante */
+--secondary: #10B981;    /* Verde esmeralda */
+--background: #111827;   /* Fondo oscuro profundo */
+--glass: rgba(255, 255, 255, 0.03); /* Efecto cristal */
+```
+
+---
+
+## 👤 Autor
+
+**Christian Estrada**  
+📍 Developer  
+🔗 [GitHub](https://github.com/christianestrada1102)
+
+---
+
+Código abierto bajo licencia **MIT** © 2026 · Hecho con React y TypeScript 💙
