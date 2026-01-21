@@ -1,73 +1,72 @@
-# React + TypeScript + Vite
+# Clasly - Student Portal Dashboard 🎓
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Clasly** is a modern, high-performance student dashboard application built to manage academic schedules, track real-time class status, and organize notes and tasks efficiently.
 
-Currently, two official plugins are available:
+![Clasly Dashboard](https://github.com/christianestrada1102/Clasly/assets/placeholder-image-url) 
+*(Note: You can add a screenshot here later)*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+-   **🎨 Portal Dashboard Aesthetic**: beautifully designed with glassmorphism, clean typography (Lexend, Noto Sans), and a premium feel.
+-   **⏱️ Real-Time Status**: The `CurrentClassCard` dynamically updates to show if you are in a class, on a break, or when your next class begins.
+-   **📅 Responsive Schedule**:
+    -   **Desktop**: Full weekly grid view with current day highlighting.
+    -   **Mobile**: Optimized Day View with easy tab navigation for each day of the week.
+-   **📝 Notes & Tasks**:
+    -   Integrated manager for class notes and to-do lists.
+    -   **Auto-Cleanup**: Notes and tasks older than **7 days** are automatically deleted to keep your workspace clutter-free.
+    -   **Persistence**: Data is saved locally in your browser.
+-   **🚀 Fast & Lightweight**: Built with Vite and React for instant load times.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+-   **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+-   **Language**: [TypeScript](https://www.typescriptlang.org/)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **Animations**: [Framer Motion](https://www.framer.com/motion/)
+-   **Icons**: [Lucide React](https://lucide.dev/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+-   Node.js (v18 or higher)
+-   npm (or yarn/pnpm)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/christianestrada1102/Clasly.git
+    cd Clasly
+    ```
+
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3.  Run the development server:
+    ```bash
+    npm run dev
+    ```
+
+4.  Open `http://localhost:5173` (or the port shown in your terminal) to view the app.
+
+## 📦 Build for Production
+
+To build the app for deployment (e.g., Vercel):
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The output will be in the `dist/` directory.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🤝 Contributing
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+---
+
+Built with ❤️ by [Christian Estrada](https://github.com/christianestrada1102) & **Gravity Agent**

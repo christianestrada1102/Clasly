@@ -103,7 +103,12 @@ export const CurrentClassCard: React.FC<CurrentClassCardProps> = ({ status }) =>
                 <div className="flex items-center gap-4 bg-black/20 px-4 py-3 rounded-lg border border-white/5">
                     <div className="text-right">
                         <p className="text-xs text-gray-400">Comienza en</p>
-                        <p className="text-xl font-bold text-white font-mono">{minutesUntil} <span className="text-sm font-normal text-gray-500">min</span></p>
+                        <p className="text-xl font-bold text-white font-mono">
+                            {minutesUntil !== undefined && minutesUntil > 60
+                                ? <>{Math.floor(minutesUntil / 60)}<span className="text-sm font-normal text-gray-500">h</span> {minutesUntil % 60}<span className="text-sm font-normal text-gray-500">m</span></>
+                                : <>{minutesUntil} <span className="text-sm font-normal text-gray-500">min</span></>
+                            }
+                        </p>
                     </div>
                     <div className="h-8 w-px bg-white/10"></div>
                     <ArrowRight className="text-gray-500" />
