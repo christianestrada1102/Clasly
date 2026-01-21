@@ -44,7 +44,7 @@ export const MobileDayView: React.FC<MobileDayViewProps> = ({ schedule, currentC
                         onClick={() => setSelectedDay(day.id)}
                         className={`
               relative z-10 flex-1 py-3 text-sm font-bold rounded-xl transition-colors
-              ${selectedDay === day.id ? 'text-bg-primary' : 'text-text-tertiary hover:text-text-secondary'}
+              ${selectedDay === day.id ? 'text-primary' : 'text-gray-400 hover:text-white'}
             `}
                     >
                         {day.label}

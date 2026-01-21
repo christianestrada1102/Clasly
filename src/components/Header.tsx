@@ -15,18 +15,18 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
                 </div>
             </div>
 
-            <nav className="hidden md:flex items-center gap-2 bg-black/20 p-1 rounded-full border border-white/5 backdrop-blur-md">
+            <nav className="flex items-center gap-2 bg-black/20 p-1 rounded-full border border-white/5 backdrop-blur-md overflow-x-auto max-w-[200px] md:max-w-none no-scrollbar">
                 <button
                     onClick={() => onNavigate('schedule')}
-                    className={`text-sm font-medium px-4 py-1.5 rounded-full transition-all duration-300 ${currentView === 'schedule' ? 'bg-primary/20 text-white shadow-[0_0_10px_rgba(19,91,236,0.3)]' : 'text-gray-400 hover:text-white'}`}
+                    className={`text-xs md:text-sm font-medium px-3 md:px-4 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap ${currentView === 'schedule' ? 'bg-primary/20 text-white shadow-[0_0_10px_rgba(19,91,236,0.3)]' : 'text-gray-400 hover:text-white'}`}
                 >
                     Horario
                 </button>
                 <button
                     onClick={() => onNavigate('notes')}
-                    className={`text-sm font-medium px-4 py-1.5 rounded-full transition-all duration-300 ${currentView === 'notes' ? 'bg-primary/20 text-white shadow-[0_0_10px_rgba(19,91,236,0.3)]' : 'text-gray-400 hover:text-white'}`}
+                    className={`text-xs md:text-sm font-medium px-3 md:px-4 py-1.5 rounded-full transition-all duration-300 whitespace-nowrap ${currentView === 'notes' ? 'bg-primary/20 text-white shadow-[0_0_10px_rgba(19,91,236,0.3)]' : 'text-gray-400 hover:text-white'}`}
                 >
-                    Notas y Tareas
+                    Notas
                 </button>
             </nav>
 
