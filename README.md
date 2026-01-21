@@ -67,8 +67,8 @@ Se utilizó una paleta de colores moderna y oscura para reducir la fatiga visual
 
 ## 👤 Autor
 
-**Christian Estrada**  
-📍 Developer  
+**Codebynas**  
+<> Dev 
 🔗 [GitHub](https://github.com/christianestrada1102)
 
 ---
