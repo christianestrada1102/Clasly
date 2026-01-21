@@ -1,4 +1,5 @@
 import React from 'react';
+import claslyLogo from '../assets/clasly.png';
 
 interface HeaderProps {
     currentView: 'schedule' | 'notes';
@@ -9,7 +10,7 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
     return (
         <header className="flex items-center justify-between px-4 md:px-8 py-5 border-b border-white/5 backdrop-blur-sm bg-black/20 z-20 sticky top-0">
             <div className="flex items-center gap-4">
-                <img src="/src/assets/clasly.png" alt="Clasly Logo" className="h-14 object-contain" />
+                <img src={claslyLogo} alt="Clasly Logo" className="h-14 object-contain" />
             </div>
 
             <nav className="flex items-center gap-2 bg-black/20 p-1 rounded-full border border-white/5 backdrop-blur-md overflow-x-auto max-w-[200px] md:max-w-none no-scrollbar">
