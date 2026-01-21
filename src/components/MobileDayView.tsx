@@ -7,9 +7,10 @@ import { getCurrentDayOfWeek } from '../utils/timeHelpers';
 interface MobileDayViewProps {
     schedule: ScheduleData;
     currentClassId: string | undefined;
+    progress?: number;
 }
 
-export const MobileDayView: React.FC<MobileDayViewProps> = ({ schedule, currentClassId }) => {
+export const MobileDayView: React.FC<MobileDayViewProps> = ({ schedule, currentClassId, progress }) => {
     const [selectedDay, setSelectedDay] = useState<number>(1);
     const days = [
         { id: 1, label: 'Lun' },
@@ -71,8 +72,9 @@ export const MobileDayView: React.FC<MobileDayViewProps> = ({ schedule, currentC
                             transition={{ delay: index * 0.05 }}
                         >
                             <ClassCard
-                                class={classItem}
+                                class={{ ...classItem, progress: currentClassId === classItem.id ? progress : undefined }}
                                 isCurrentClass={currentClassId === classItem.id}
+                                isPast={selectedDay === getCurrentDayOfWeek(new Date()) && (classItem.endTime.hour * 60 + classItem.endTime.minute) < (new Date().getHours() * 60 + new Date().getMinutes())}
                             />
                         </motion.div>
                     ))}

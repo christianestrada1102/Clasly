@@ -16,6 +16,7 @@ export interface Class {
     type: ClassType;
     location: string;        // Salón (LS11, I16, etc.)
     professor?: string;      // Profesor
+    progress?: number;       // 0-100 para indicar progreso si es actual
 }
 
 export interface CurrentClassStatus {

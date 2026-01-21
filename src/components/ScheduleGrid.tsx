@@ -49,6 +49,7 @@ export const ScheduleGrid: React.FC<ScheduleGridProps> = ({ schedule, currentCla
                                     <ClassCard
                                         class={classItem}
                                         isCurrentClass={currentClassId === classItem.id}
+                                        isPast={isToday && (classItem.endTime.hour * 60 + classItem.endTime.minute) < (new Date().getHours() * 60 + new Date().getMinutes())}
                                     />
                                 </motion.div>
                             ))}

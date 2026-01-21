@@ -11,6 +11,7 @@ export default {
         primary: "#135bec",     // Blue
         secondary: "#10b981",   // Green (Lab)
         tertiary: "#f59e0b",    // Orange (Taller/Tutorial)
+        "lab-purple": "#8b5cf6", // Purple for LS11 Labs
         "background-light": "#f6f6f8",
         "background-dark": "#101622",
         "glass-surface": "rgba(30, 41, 59, 0.7)",

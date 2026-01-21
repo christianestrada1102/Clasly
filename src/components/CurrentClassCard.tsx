@@ -51,14 +51,38 @@ export const CurrentClassCard: React.FC<CurrentClassCardProps> = ({ status }) =>
                     <div className="w-full md:w-64 flex flex-col gap-2">
                         <div className="flex justify-between text-xs text-gray-400 mb-1">
                             <span>Transcurrido</span>
-                            <span className="text-white font-medium">{minutesLeft} min restantes</span>
+                            <span className="text-white font-medium">
+                                {(minutesLeft ?? 0) > 60
+                                    ? `${Math.floor((minutesLeft ?? 0) / 60)}h ${(minutesLeft ?? 0) % 60}m restantes`
+                                    : `${minutesLeft ?? 0} min restantes`
+                                }
+                            </span>
                         </div>
                         <div className="h-2 bg-white/5 rounded-full overflow-hidden border border-white/5">
                             <motion.div
-                                className="h-full bg-primary shadow-[0_0_10px_rgba(19,91,236,0.5)]"
-                                initial={{ width: 0 }}
-                                animate={{ width: `${progress}%` }}
-                                transition={{ duration: 1, ease: "easeOut" }}
+                                className="h-full shadow-[0_0_10px_rgba(19,91,236,0.5)]"
+                                initial={{ width: 0, backgroundColor: "#135bec" }}
+                                animate={{
+                                    width: `${progress}%`,
+                                    backgroundColor: ["#135bec", "#10b981"]
+                                }}
+                                transition={{
+                                    duration: 1,
+                                    ease: "easeOut",
+                                    backgroundColor: { duration: 1, times: [0, 1], ease: "linear", delay: 0 } // Just animate to current progress color? slightly complex with framer motion simplistic array.
+                                    // Better approach: Calculate color or just let it interpolate based on progress?
+                                    // Since 'progress' is a state that updates, simply binding backgroundColor to a value derived from progress is better if we want strict "progress = color".
+                                    // But Framer Motion `animate` with values will transition. 
+                                    // If we simply set `backgroundColor` to a computed hex, it will animate to it.
+                                }}
+                                style={{
+                                    // Let's use a simpler approach: inline style with CSS var or just a motion value? 
+                                    // We can just rely on the 'animate' prop if we pass the target color.
+                                    // Wait, if progress is 50%, we want the color to be 50% mix. 
+                                    // We can't easily do that with `animate={{ backgroundColor: ... }}` unless we compute the mix manually.
+                                    // Let's compute the mix manually.
+                                    backgroundColor: `color-mix(in srgb, #135bec ${100 - (progress || 0)}%, #10b981 ${progress || 0}%)`
+                                }}
                             />
                         </div>
                     </div>

@@ -50,6 +50,7 @@ const App: React.FC = () => {
                     <MobileDayView
                       schedule={SCHEDULE_DATA}
                       currentClassId={currentClassStatus.class?.id}
+                      progress={currentClassStatus.progress}
                     />
                   </div>
 
@@ -77,8 +78,12 @@ const App: React.FC = () => {
                 <span className="text-gray-300">Teoría</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="block w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+                <span className="block w-2 h-2 rounded-full bg-lab-purple shadow-[0_0_8px_rgba(139,92,246,0.5)]"></span>
                 <span className="text-gray-300">Laboratorio</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="block w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+                <span className="text-gray-300">Completado</span>
               </div>
 
               {/* Download Button Removed */}
