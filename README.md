@@ -141,4 +141,4 @@ Se utilizó una paleta de colores moderna y oscura para reducir la fatiga visual
 
 ---
 
-Código abierto bajo licencia **MIT** © 2026 · Hecho con React y TypeScript 💙
+ © Christian Estrada 2026 · Hecho con React/Vite y TypeScript 💙
