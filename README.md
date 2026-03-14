@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🎓 Clasly - Dashboard Estudiantil
 
 <div align="center">
@@ -129,14 +128,8 @@ Se utilizó una paleta de colores moderna y oscura para reducir la fatiga visual
 ---
 
 ## 👤 Autor
-
-<<<<<<< HEAD
-**Christian Estrada**  
-📍 Developer  
-=======
-**Codebynas**  
-<> Dev 
->>>>>>> 08f07b02ab7df370b7d71ba6dc34f69c3cf1357e
+**CodeByNas**  
+ 
 🔗 [GitHub](https://github.com/christianestrada1102)
 
 ---
