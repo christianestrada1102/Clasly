@@ -31,5 +31,5 @@ export interface CurrentClassStatus {
 export interface ScheduleData {
     classes: Class[];
     semester: string;        // "2026"
-    group: string;           // "DS41M"
+    group: string;           // "DS32M"
 }

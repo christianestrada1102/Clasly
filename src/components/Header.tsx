@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
             </nav>
 
             <div className="hidden md:flex items-center gap-4 text-sm font-medium text-gray-300/80 font-mono tracking-wider">
-                <span>DS41M 2026</span>
+                <span>DS32M 2026</span>
             </div>
         </header>
     );
