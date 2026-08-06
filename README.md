@@ -1,136 +1,159 @@
-# 🎓 Clasly - Dashboard Estudiantil
-
 <div align="center">
+  <h1>Clasly</h1>
+  <p><strong>Student dashboard with real-time class detection, notes, and task management</strong></p>
 
-![Clasly](https://img.shields.io/badge/Clasly-Student_Dashboard-2563EB?style=for-the-badge)
-![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)
-![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38B2AC?style=for-the-badge&logo=tailwind-css)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-11-0055FF?style=for-the-badge&logo=framer)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript)
+  <p>
+    <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black" />
+    <img src="https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white" />
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" />
+    <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white" />
+    <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=flat&logo=framer&logoColor=white" />
+    <img src="https://img.shields.io/badge/license-MIT-green?style=flat" />
+  </p>
 
-Dashboard moderno para gestión académica con enfoque en UI/UX, estado en tiempo real y productividad.
-
-[Ver Demo](#) · [Reportar Bug](https://github.com/christianestrada1102/Clasly/issues)
-
+  <p>
+    <a href="https://github.com/christianestrada1102/Clasly/issues">🐛 Report Bug</a>
+  </p>
 </div>
 
 ---
 
-## 💡 Sobre el Proyecto
+## About
 
-**Clasly** es una aplicación diseñada para transformar la experiencia de organización estudiantil. A diferencia de los horarios tradicionales estáticos, este dashboard ofrece una interfaz viva que **entiende el contexto temporal del estudiante**.
+A personal academic dashboard built from scratch to replace static PDF schedules. It knows what class you're in right now, shows a live progress bar for the current session, and keeps your notes and tasks in one place — all running client-side with no backend.
 
-El objetivo principal fue crear una herramienta que no solo muestre información, sino que se adapte al momento del día, indicando claramente qué clase está cursando, cuánto tiempo falta para la siguiente y permitiendo gestionar tareas académicas en un solo lugar.
-
----
-
-## ✨ Características destacadas
-
-- 🎨 **Diseño Portal UI**: Interfaz glassmorphism premium con tipografía cuidada (Lexend + Noto Sans).
-- ⏱️ **Estado en Tiempo Real**: Tarjetas inteligentes que indican si estás en clase, receso o tiempo libre.
-- 📱 **Responsive Total**: 
-  - **Desktop**: Grid semanal completo con resaltado del día actual.
-  - **Móvil**: Vista diaria optimizada con navegación por pestañas.
-- 🧹 **Auto-Cleanup**: Sistema inteligente que elimina notas y tareas antiguas (>7 días) automáticamente.
-- ⚡ **Alto Rendimiento**: Construido con Vite para carga instantánea y persistencia local (LocalStorage).
-- 📝 **Gestor de Tareas**: Bloc de notas y lista de pendientes integrados en la misma interfaz.
-
-## 🎥 Preview
-
-![Dashboard Preview](https://github.com/christianestrada1102/Clasly/assets/placeholder-preview.png)
-*(Asegúrate de subir una captura real a tu repo y actualizar este link)*
+> Built and maintained by **[Christian Estrada](https://github.com/christianestrada1102)** (@CodeByNas)  
+> Chihuahua, Mexico
 
 ---
 
-## 🚀 Tecnologías Utilizadas
+## Key Features
 
-Este proyecto fue construido utilizando un stack moderno enfocado en **rendimiento** y **escalabilidad**:
-
-### Frontend
-- **React 18**: Librería principal para la construcción de interfaces reactivas.
-- **TypeScript**: Garantiza la seguridad de tipos y facilita el mantenimiento del código.
-- **Vite**: Entorno de desarrollo de última generación para tiempos de carga ultrarrápidos.
-- **TailwindCSS**: Sistema de utilidades para un diseño rápido y consistente.
-- **Framer Motion**: Motor de animaciones para transiciones fluidas y micro-interacciones.
-- **Lucide React**: Biblioteca de iconos SVG optimizados.
-- **LocalStorage**: Implementación de persistencia de datos del lado del cliente sin necesidad de base de datos.
-
----
-
-=======
-
-## 💡 Sobre el Proyecto
-
-**Clasly** es una aplicación diseñada para transformar la experiencia de organización estudiantil. A diferencia de los horarios tradicionales estáticos, este dashboard ofrece una interfaz viva que **entiende el contexto temporal del estudiante**.
-
-El objetivo principal fue crear una herramienta que no solo muestre información, sino que se adapte al momento del día, indicando claramente qué clase está cursando, cuánto tiempo falta para la siguiente y permitiendo gestionar tareas académicas en un solo lugar.
+| Feature | Description |
+|---|---|
+| ⏱️ Real-time class detection | `useCurrentClass` hook polls every 60 s and resolves state: `current`, `upcoming`, `break`, or `none` |
+| 📊 Live progress bar | Shows % elapsed and minutes remaining for the active class |
+| 🗓️ Weekly schedule grid | Desktop view with color-coded cards per subject across Mon–Fri |
+| 📱 Mobile day view | Responsive single-day layout shown on `md:hidden` |
+| 📝 Notes | Freeform class notes persisted in `localStorage`, auto-purged after 7 days |
+| ✅ Task list | Checkbox task manager persisted in `localStorage`, auto-purged after 7 days |
+| 🌙 Glassmorphism UI | Dark-first design with blurred campus background, glass-panel cards, and Framer Motion animations |
 
 ---
 
-## ✨ Características destacadas
-
-- 🎨 **Diseño Portal UI**: Interfaz glassmorphism premium con tipografía cuidada (Lexend + Noto Sans).
-- ⏱️ **Estado en Tiempo Real**: Tarjetas inteligentes que indican si estás en clase, receso o tiempo libre.
-- 📱 **Responsive Total**: 
-  - **Desktop**: Grid semanal completo con resaltado del día actual.
-  - **Móvil**: Vista diaria optimizada con navegación por pestañas.
-- 🧹 **Auto-Cleanup**: Sistema inteligente que elimina notas y tareas antiguas (>7 días) automáticamente.
-- ⚡ **Alto Rendimiento**: Construido con Vite para carga instantánea y persistencia local (LocalStorage).
-- 📝 **Gestor de Tareas**: Bloc de notas y lista de pendientes integrados en la misma interfaz.
-
-## 🚀 Tecnologías Utilizadas
-
-Este proyecto fue construido utilizando un stack moderno enfocado en **rendimiento** y **escalabilidad**:
-
-### Frontend
-- **React 18**: Librería principal para la construcción de interfaces reactivas.
-- **TypeScript**: Garantiza la seguridad de tipos y facilita el mantenimiento del código.
-- **Vite**: Entorno de desarrollo de última generación para tiempos de carga ultrarrápidos.
-- **TailwindCSS**: Sistema de utilidades para un diseño rápido y consistente.
-- **Framer Motion**: Motor de animaciones para transiciones fluidas y micro-interacciones.
-- **Lucide React**: Biblioteca de iconos SVG optimizados.
-- **LocalStorage**: Implementación de persistencia de datos del lado del cliente sin necesidad de base de datos.
-
----
-
->>>>>>> 08f07b02ab7df370b7d71ba6dc34f69c3cf1357e
-## 🧱 Arquitectura del Proyecto
-
-El código está estructurado para ser modular y mantenible:
+## Tech Stack
 
 ```
-Clasly/
+React 19            → UI and component model
+TypeScript 5.9      → Type-safe schedule data and hooks
+Vite 7              → Dev server and production build
+TailwindCSS 3       → Utility-first styling
+Framer Motion 12    → Page and card animations
+Lucide React        → SVG icon set
+localStorage        → Client-side persistence (notes, tasks)
+```
+
+---
+
+## Project Structure
+
+```
+gravity/
 ├── src/
-│   ├── components/         # Componentes UI (Header, ClassCard, NotesView...)
-│   ├── hooks/              # Lógica reutilizable (useCurrentClass, hooks de tiempo...)
-│   ├── types/              # Definiciones TypeScript para datos académicos
-│   ├── utils/              # Funciones auxiliares y datos estáticos del horario
-│   ├── App.tsx             # Layout principal y enrutamiento visual
-│   └── index.css           # Estilos globales y configuración de variables
-├── public/                 # Assets estáticos
-└── README.md               # Documentación
+│   ├── animations/
+│   │   └── variants.ts         # Framer Motion shared variants
+│   ├── components/
+│   │   ├── Header.tsx          # Navigation between schedule and notes views
+│   │   ├── CurrentClassCard.tsx # Real-time status banner
+│   │   ├── ScheduleGrid.tsx    # Desktop weekly grid
+│   │   ├── MobileDayView.tsx   # Mobile single-day view
+│   │   ├── ClassCard.tsx       # Individual class card
+│   │   └── NotesView.tsx       # Notes + task manager (localStorage)
+│   ├── hooks/
+│   │   └── useCurrentClass.ts  # 60 s polling hook, resolves CurrentClassStatus
+│   ├── types/
+│   │   └── schedule.types.ts   # Class, TimeSlot, CurrentClassStatus, ScheduleData
+│   ├── utils/
+│   │   ├── schedule.ts         # Hardcoded SCHEDULE_DATA for group DS32M / 2026
+│   │   └── timeHelpers.ts      # getCurrentDayOfWeek, getCurrentTimeInMinutes, isTimeBetween
+│   ├── App.tsx                 # Root layout, view router (schedule | notes)
+│   └── main.tsx                # React DOM mount
+├── package.json
+└── README.md
 ```
 
 ---
 
-## 🎨 Paleta de Diseño
+## Schedule
 
-Se utilizó una paleta de colores moderna y oscura para reducir la fatiga visual:
+Group **DS32M** · Semester **2026** · Mon–Fri, 7:00–15:00
+
+| Subject | Professor |
+|---|---|
+| Cálculo Integral | Trejo Carrillo David |
+| Desarrollo del Pensamiento y Toma de Decisiones | González Rubio Ángel Esteban |
+| Inglés III | Nieto Chavira Miriam |
+| Bases de Datos | Ramírez Ochoa Dynhora Danheyda |
+| Programación Orientada a Objetos | Batres Márquez Milton Joel |
+| Tópicos de Calidad para el Diseño de Software | Bustamante Lozano Juan Carlos |
+| Proyecto Integrador I | Pérez Ortega Eva Claudia |
+| Tutoría | Ramírez Ochoa Dynhora Danheyda |
+
+---
+
+## Installation
+
+### Prerequisites
+
+- Node.js 18+
+
+### Setup
+
+```bash
+git clone https://github.com/christianestrada1102/Clasly.git
+cd Clasly
+
+npm install
+
+# Dev server — http://localhost:5173
+npm run dev
+```
+
+### Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Vite dev server |
+| `npm run build` | Production build → `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | ESLint check |
+
+---
+
+## Design
+
+Dark-first glassmorphism UI with a blurred campus photo as background. Color palette:
 
 ```css
---primary: #2563EB;      /* Azul vibrante */
---secondary: #10B981;    /* Verde esmeralda */
---background: #111827;   /* Fondo oscuro profundo */
---glass: rgba(255, 255, 255, 0.03); /* Efecto cristal */
+--primary:    #135BEC;   /* Blue — Teoría */
+--secondary:  #10B981;   /* Green — Completado */
+--lab-purple: #8B5CF6;   /* Purple — Laboratorio */
+--background: #111318;   /* Deep dark */
+--glass:      rgba(255, 255, 255, 0.03);
 ```
 
 ---
 
-## Autor
+## License
 
-**Christian Estrada**
-Chihuahua, México
+MIT License © 2026 CodeByNas
+
+---
+
+## Author
+
+**Christian Estrada**  
+Chihuahua, Mexico
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/christian-estrada-a59130386/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/christianestrada1102)
@@ -138,4 +161,6 @@ Chihuahua, México
 
 ---
 
-CodeByNas © 2026
+<div align="center">
+  <p><sub>© 2026 CodeByNas · MIT License</sub></p>
+</div>
