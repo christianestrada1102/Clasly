@@ -20,7 +20,7 @@ export const ScheduleGrid: React.FC<ScheduleGridProps> = ({ schedule, currentCla
             variants={gridContainerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-5 gap-4 min-w-[1000px] h-full" // Ensure min-width for scrolling if needed
+            className="grid grid-cols-5 gap-4 min-w-[1000px] h-full"
         >
             {days.map((day, index) => {
                 const isToday = currentDay === day;
@@ -39,8 +39,6 @@ export const ScheduleGrid: React.FC<ScheduleGridProps> = ({ schedule, currentCla
                             <h3 className={`text-lg font-semibold ${isToday ? 'text-primary' : 'text-white'}`}>
                                 {dayNames[index]}
                             </h3>
-                            {/* <span className="text-xs text-gray-400">{dates[index]}</span> */}
-                            {/* Dynamic dates would go here, kept static placeholder structure */}
                         </div>
 
                         <div className="flex flex-col gap-4 h-full">

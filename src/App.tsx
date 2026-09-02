@@ -1,15 +1,42 @@
 import React, { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { Header } from './components/Header';
 import { ScheduleGrid } from './components/ScheduleGrid';
 import { MobileDayView } from './components/MobileDayView';
 import { NotesView } from './components/NotesView';
+import { ScheduleUploader } from './components/ScheduleUploader';
 import { useCurrentClass } from './hooks/useCurrentClass';
 import { SCHEDULE_DATA } from './utils/schedule';
 import { CurrentClassCard } from './components/CurrentClassCard';
+import type { ScheduleData } from './types/schedule.types';
+import { Upload, RotateCcw } from 'lucide-react';
+
+const STORAGE_KEY = 'custom_schedule';
+
+function loadSavedSchedule(): ScheduleData | null {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch { return null; }
+}
 
 const App: React.FC = () => {
   const currentClassStatus = useCurrentClass();
   const [currentView, setCurrentView] = useState<'schedule' | 'notes'>('schedule');
+  const [customSchedule, setCustomSchedule] = useState<ScheduleData | null>(loadSavedSchedule);
+  const [showUploader, setShowUploader] = useState(false);
+
+  const schedule = customSchedule ?? SCHEDULE_DATA;
+
+  function handleScheduleParsed(data: ScheduleData) {
+    setCustomSchedule(data);
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch { /* ignore */ }
+  }
+
+  function handleReset() {
+    setCustomSchedule(null);
+    try { localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+  }
 
   return (
     <div className="font-display bg-background-dark text-white min-h-screen relative overflow-x-hidden flex flex-col">
@@ -21,7 +48,7 @@ const App: React.FC = () => {
 
       {/* Main Content Wrapper */}
       <div className="relative z-10 flex h-full flex-col flex-1">
-        <Header currentView={currentView} onNavigate={setCurrentView} />
+        <Header currentView={currentView} onNavigate={setCurrentView} group={schedule.group} semester={schedule.semester} />
 
         <main className="flex-1 flex flex-col p-4 md:p-8 lg:px-12 lg:py-8 max-w-[90rem] mx-auto w-full">
 
@@ -32,12 +59,38 @@ const App: React.FC = () => {
           <div className="glass-panel w-full flex-col flex-1 rounded-2xl overflow-hidden shadow-2xl animate-fade-in-up flex">
 
             {/* Dashboard Header */}
-            <div className="flex items-end justify-between p-6 md:p-8 pb-4 border-b border-white/5">
+            <div className="flex items-center justify-between p-6 md:p-8 pb-4 border-b border-white/5">
               <div className="flex flex-col gap-1">
                 <h2 className="text-3xl font-bold text-white tracking-tight font-display">
                   {currentView === 'schedule' ? 'Horario de Clases' : 'Notas y Tareas'}
                 </h2>
+                {customSchedule && (
+                  <p className="text-xs text-gray-500">
+                    Grupo <span className="text-primary font-medium">{customSchedule.group}</span> — horario personalizado
+                  </p>
+                )}
               </div>
+              {currentView === 'schedule' && (
+                <div className="flex items-center gap-2">
+                  {customSchedule && (
+                    <button
+                      onClick={handleReset}
+                      title="Volver al horario original"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs text-gray-400 hover:text-white border border-white/10 hover:border-white/20 transition-all"
+                    >
+                      <RotateCcw size={13} />
+                      Restablecer
+                    </button>
+                  )}
+                  <button
+                    onClick={() => setShowUploader(true)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 transition-all"
+                  >
+                    <Upload size={15} />
+                    {customSchedule ? 'Cambiar horario' : 'Subir mi horario'}
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Content Area */}
@@ -48,7 +101,7 @@ const App: React.FC = () => {
                   {/* Mobile View */}
                   <div className="md:hidden px-6 pt-4">
                     <MobileDayView
-                      schedule={SCHEDULE_DATA}
+                      schedule={schedule}
                       currentClassId={currentClassStatus.class?.id}
                       progress={currentClassStatus.progress}
                     />
@@ -57,7 +110,7 @@ const App: React.FC = () => {
                   {/* Desktop Grid */}
                   <div className="hidden md:block h-full">
                     <ScheduleGrid
-                      schedule={SCHEDULE_DATA}
+                      schedule={schedule}
                       currentClassId={currentClassStatus.class?.id}
                     />
                   </div>
@@ -94,6 +147,16 @@ const App: React.FC = () => {
           </div>
         </main>
       </div>
+
+      {/* Schedule Uploader Modal */}
+      <AnimatePresence>
+        {showUploader && (
+          <ScheduleUploader
+            onClose={() => setShowUploader(false)}
+            onScheduleParsed={handleScheduleParsed}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

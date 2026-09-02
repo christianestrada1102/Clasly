@@ -4,9 +4,11 @@ import claslyLogo from '../assets/clasly.png';
 interface HeaderProps {
     currentView: 'schedule' | 'notes';
     onNavigate: (view: 'schedule' | 'notes') => void;
+    group: string;
+    semester: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
+export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, group, semester }) => {
     return (
         <header className="flex items-center justify-between px-4 md:px-8 py-5 border-b border-white/5 backdrop-blur-sm bg-black/20 z-20 sticky top-0">
             <div className="flex items-center gap-4">
@@ -29,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
             </nav>
 
             <div className="hidden md:flex items-center gap-4 text-sm font-medium text-gray-300/80 font-mono tracking-wider">
-                <span>DS32M 2026</span>
+                <span>{group} {semester}</span>
             </div>
         </header>
     );

@@ -60,6 +60,18 @@ export const ClassCard: React.FC<ClassCardProps> = ({ class: classData, isPast, 
         }
     }
 
+    if (classData.type === 'Receso') {
+        return (
+            <div className="h-full flex items-center justify-center rounded-lg border border-dashed border-white/10 bg-white/[0.02]">
+                <div className="flex items-center gap-2 text-gray-500">
+                    <div className="h-px w-6 bg-gray-600" />
+                    <span className="text-xs font-medium tracking-widest uppercase">Receso</span>
+                    <div className="h-px w-6 bg-gray-600" />
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="glass-card rounded-lg p-4 relative group cursor-pointer h-full flex flex-col justify-between">
             {/* Bottom Border Accent or Full Progress Background */}
@@ -68,18 +80,6 @@ export const ClassCard: React.FC<ClassCardProps> = ({ class: classData, isPast, 
                     className="absolute inset-0 rounded-lg opacity-20 transition-all duration-1000 ease-linear pointer-events-none"
                     style={{
                         background: `linear-gradient(to right, #135bec ${classData.progress}%, transparent ${classData.progress}%)`
-                        // A simple gradient might be hard to make "mix" colors. 
-                        // User wants "barra que va cambiando de color". 
-                        // In CurrentClassCard we did a mix. 
-                        // Maybe we just do the bottom border as progress? 
-                        // User said "la clase en si osea el card como una barra".
-                        // Let's try filling the background with a gradient that moves? 
-                        // Or just the same color mix logic for the border/background?
-
-                        // Let's use the requested "filling" effect. 
-                        // "se vaya pintando de verde... la clase en si osea el card"
-                        // This sounds like a background fill from left to right.
-                        // And the color of that fill changes from blue to green.
                     }}
                 >
                     <div
@@ -87,7 +87,7 @@ export const ClassCard: React.FC<ClassCardProps> = ({ class: classData, isPast, 
                         style={{
                             width: `${classData.progress}%`,
                             backgroundColor: `color-mix(in srgb, #135bec ${100 - (classData.progress || 0)}%, #10b981 ${classData.progress || 0}%)`,
-                            opacity: 0.2 // Make it subtle so text is readable
+                            opacity: 0.2
                         }}
                     ></div>
                 </div>
